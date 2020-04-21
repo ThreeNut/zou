@@ -1,6 +1,7 @@
 package com.zou.test;
 
 import com.zou.pojo.Customer;
+import com.zou.util.JpaUtil;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
@@ -24,21 +25,21 @@ public class JpaTest {
     public void test(){
 
         //1.加载配置文件创建工厂(实体管理器工厂)对象
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("myJpa");
+       // EntityManagerFactory factory = Persistence.createEntityManagerFactory("myJpa");
         //2.通过实体管理器工厂获取实体管理器
-        EntityManager em = factory.createEntityManager();
+        EntityManager em = JpaUtil.getEntityManager();
         //3.获取事务对象,开启事务
         EntityTransaction tx = em.getTransaction();
         //4.完成增删改查操作
         tx.begin();//开启事务
         Customer customer=new Customer();
         customer.setCustName("zou");
-        customer.setCustAddress("邹庄村2");
+        customer.setCustAddress("邹庄村3");
         em.persist(customer);//保存
         //5.提交事务
         tx.commit();
         //6.释放资源
         em.close();
-        factory.close();
+      //  factory.close();
     }
 }

@@ -26,7 +26,7 @@
             <property name="hibernate.show_sql" value="true"/><!--  显示sql false|true-->
             <property name="hibernate.hbm2ddl.auto" value="update"/><!--自动创建数据库表
                                                                          create: 程序运行时创建数据库表(如果有表,先删除表再创建)
-                                                                         update: 程序运行时创建表(如果有表不会创建表)
+                                                                         update: 程序运行时创建表(如果有表不会创建表,没表创建新表)
                                                                          none :  不会创建表
                                                                        -->
             <property name="hibernate.format_sql" value="true" />
