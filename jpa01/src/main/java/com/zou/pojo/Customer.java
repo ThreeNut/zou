@@ -99,5 +99,17 @@ public class Customer implements Serializable {
         this.custPhone = custPhone;
     }
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "custId=" + custId +
+                ", custName='" + custName + '\'' +
+                ", custSource='" + custSource + '\'' +
+                ", custIndustry='" + custIndustry + '\'' +
+                ", custLevel='" + custLevel + '\'' +
+                ", custAddress='" + custAddress + '\'' +
+                ", custPhone='" + custPhone + '\'' +
+                '}';
+    }
 }
 //18集
