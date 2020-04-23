@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -47,5 +48,31 @@ public class CustomerTest {
     public void FindAll(){
         List<Customer> all = customerDao.findAll();
         all.forEach(System.out::println);
+    }
+
+    //查询统计 ,查询总数
+    @Test
+    public void count(){
+        long count = customerDao.count();
+        System.out.println(count);
+    }
+    //查询某个值是否存在
+    @Test
+    public void exit(){
+        boolean exists = customerDao.exists(1L);
+      if (exists){
+          System.out.println("查询到了!");
+      }else {
+          System.out.println("没有此值!");
+      }
+    }
+    //根据id查询
+    @Transactional //添加事务保证代码顺利执行
+    @Test
+    public void getOne(){
+        Customer one = customerDao.getOne(1L);
+        System.out.println(one);
+        //getOne 和 findOne 的区别?
+        //getOne是延迟加载,什么时候使用什么时候执行查询
     }
 }
